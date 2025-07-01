@@ -162,7 +162,8 @@ const About = () => {
                     <span>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                       In malesuada, odio sit amet pharetra vehicula, sapien leo
-                      egestas magna, vitae auctor diam magna cursus arcu.
+                      egestas magna, vitae auctor diam
+                      magnajadjadljladlaldladljanl cursus arcu.
                     </span>
                   </div>
                   <div className="flex flex-row gap-1 justify-center">
