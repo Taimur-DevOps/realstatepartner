@@ -15,208 +15,74 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Pagination } from "swiper/modules";
 
-const featured = [
-  {
-    img: crsl1,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl2,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl3,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl4,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl1,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl2,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl4,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl2,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl3,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl1,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-  {
-    img: crsl4,
-    title: "Luxury villa with pool",
-    price: " $990,000.00",
-    bedIcon: <LuBedDouble className="w-[18px] h-[18px]" />,
-    beds: "4",
-    showerIcon: <PiShowerLight className="w-[18px] h-[18px]" />,
-    bathroom: "2",
-    ruler: <TfiRulerAlt2 className="w-[18px] h-[18px]" />,
-    meter: "3410",
-  },
-];
-const subImages = [
-  {
-    img: crsl4,
-  },
-  {
-    img: crsl2,
-  },
-  {
-    img: crsl1,
-  },
-];
 
-const ListingCards = () => {
+const ListingCards = ({properties}) => {
+
+  const normalizeImageUrl = (url) => {
+    if (!url) return "/default.jpg";
+    if (url.startsWith("http") || url.startsWith("/")) return url;
+    return `/${url}`;
+  };
+   
+  
   return (
     <>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
-        {featured.map((item, index) => {
-          const {
-            img,
-            title,
-            price,
-            beds,
-            bedIcon,
-            bathroom,
-            showerIcon,
-            ruler,
-            meter,
-          } = item;
-          return (
-            // eslint-disable-next-line react/jsx-key
-            <div key={index}>
-              <Link href="/properties/12">
-                <div className=" rounded-[4px] bg-white shadow-md relative">
-                  <Swiper
-                    pagination={true}
-                    modules={[Pagination]}
-                    className="subImgsNavigation"
-                  >
-                    {subImages.map((item, index) => {
-                      const { img } = item;
-                      return (
-                        <SwiperSlide key={index}>
-                          <Image
-                            alt="tesla"
-                            src={img}
-                            className="w-full rounded-t-[4px]"
-                          />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
+    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
+      {properties.map((property) => {
+        const {
+          id,
+          title,
+          price,
+          bedrooms,
+          bathrooms,
+          area,
+          images = [],
+        } = property;
 
-                  <div className="flex gap-2 flex-col p-5">
-                    <h4 className="text-base font-bold">{title}</h4>
-                    <div className="flex justify-between items-center">
-                      <span className="text-lightPeach text-lg">{price}</span>
-                      <div className="flex items-center gap-2 text-iconClr text-sm">
-                        <div className="flex items-center gap-1">
-                          <span>{bedIcon}</span>
-                          <span>{beds}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          {" "}
-                          <span>{showerIcon}</span>
-                          <span>{bathroom}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <span>{ruler}</span>
-                          <span>{meter}</span>
-                        </div>
+        return (
+          <div key={id}>
+           <Link href={`/properties/${property._id}`}>
+              <div className="rounded-[4px] bg-white shadow-md relative">
+                <Swiper pagination={true} modules={[Pagination]} className="subImgsNavigation">
+                {images.map((imgUrl, idx) => (
+  <SwiperSlide key={idx}>
+    <Image
+      alt={`property-${id}-img-${idx}`}
+      src={normalizeImageUrl(imgUrl)}
+      width={400}
+      height={300}
+      className="w-full h-[250px] object-cover rounded-t-[4px]"
+    />
+  </SwiperSlide>
+))}
+                </Swiper>
+
+                <div className="flex gap-2 flex-col p-5">
+                  <h4 className="text-base font-bold">{title}</h4>
+                  <div className="flex justify-between items-center">
+                    <span className="text-lightPeach text-lg">${price}</span>
+                    <div className="flex items-center gap-2 text-iconClr text-sm">
+                      <div className="flex items-center gap-1">
+                        <LuBedDouble className="w-[18px] h-[18px]" />
+                        <span>{bedrooms}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <PiShowerLight className="w-[18px] h-[18px]" />
+                        <span>{bathrooms}</span>
+                      </div>
+                      <div className="flex items-center gap-1">
+                        <TfiRulerAlt2 className="w-[18px] h-[18px]" />
+                        <span>{area} sqft</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Link>
-            </div>
-          );
-        })}
-      </div>
+              </div>
+            </Link>
+          </div>
+        );
+      })}
+    </div>
     </>
   );
 };

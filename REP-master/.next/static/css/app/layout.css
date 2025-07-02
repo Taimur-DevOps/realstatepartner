@@ -585,21 +585,9 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-1 {
-  margin-top: 0.25rem;
-  margin-bottom: 0.25rem;
-}
 .my-3 {
   margin-top: 0.75rem;
   margin-bottom: 0.75rem;
-}
-.my-5 {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-}
-.my-6 {
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
 }
 .-mt-3 {
   margin-top: -0.75rem;
@@ -773,6 +761,9 @@ video {
 .h-\[240px\] {
   height: 240px;
 }
+.h-\[250px\] {
+  height: 250px;
+}
 .h-\[280px\] {
   height: 280px;
 }
@@ -871,9 +862,6 @@ video {
 }
 .max-w-\[20rem\] {
   max-width: 20rem;
-}
-.max-w-\[490px\] {
-  max-width: 490px;
 }
 .max-w-sm {
   max-width: 24rem;
@@ -1281,9 +1269,6 @@ video {
 .p-8 {
   padding: 2rem;
 }
-.p-\[30px\] {
-  padding: 30px;
-}
 .\!px-0 {
   padding-left: 0px !important;
   padding-right: 0px !important;
@@ -1299,6 +1284,10 @@ video {
 .px-2\.5 {
   padding-left: 0.625rem;
   padding-right: 0.625rem;
+}
+.px-24 {
+  padding-left: 6rem;
+  padding-right: 6rem;
 }
 .px-3 {
   padding-left: 0.75rem;
@@ -1319,10 +1308,6 @@ video {
 .px-7 {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
-}
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 .px-9 {
   padding-left: 2.25rem;
@@ -1398,12 +1383,6 @@ video {
 }
 .pb-5 {
   padding-bottom: 1.25rem;
-}
-.pb-6 {
-  padding-bottom: 1.5rem;
-}
-.pb-8 {
-  padding-bottom: 2rem;
 }
 .pl-3 {
   padding-left: 0.75rem;
@@ -3207,11 +3186,6 @@ section {
     margin-right: auto;
   }
 
-  .lg\:my-0 {
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
-
   .lg\:mb-0 {
     margin-bottom: 0px;
   }
@@ -3220,16 +3194,8 @@ section {
     margin-bottom: 0.5rem;
   }
 
-  .lg\:mb-8 {
-    margin-bottom: 2rem;
-  }
-
   .lg\:mt-0 {
     margin-top: 0px;
-  }
-
-  .lg\:mt-5 {
-    margin-top: 1.25rem;
   }
 
   .lg\:\!flex {
@@ -3352,10 +3318,6 @@ section {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .lg\:grid-cols-6 {
-    grid-template-columns: repeat(6, minmax(0, 1fr));
-  }
-
   .lg\:flex-row {
     flex-direction: row;
   }
@@ -3386,10 +3348,6 @@ section {
 
   .lg\:gap-8 {
     gap: 2rem;
-  }
-
-  .lg\:gap-\[3\.5rem\] {
-    gap: 3.5rem;
   }
 
   .lg\:gap-\[50px\] {

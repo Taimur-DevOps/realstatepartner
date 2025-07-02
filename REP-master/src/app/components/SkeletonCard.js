@@ -1,10 +1,10 @@
 import React from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-const SkeletonCard = () => {
+const SkeletonCard = ({ count = 9 }) => {
   return (
     <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[30px]">
-      {Array(9)
+      {Array(count)
         .fill()
         .map((item, index) => (
           <div className="shadow-md" key={index}>

@@ -1,4 +1,4 @@
-// File: /home/taimurahmad/workspace/Projects/REP-main 3/REP-main/REP-master/src/app/layout.js
+// File: /home/khadijazahoor/realstatepartner/REP-master/src/app/layout.js
 import * as entry from '../../../src/app/layout.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

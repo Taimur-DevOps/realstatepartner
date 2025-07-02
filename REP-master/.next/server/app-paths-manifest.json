@@ -1,8 +1,5 @@
 {
-  "/auth/superadmindashboard/page": "app/auth/superadmindashboard/page.js",
-  "/auth/teammemberdashboard/page": "app/auth/teammemberdashboard/page.js",
   "/page": "app/page.js",
-  "/properties/page": "app/properties/page.js",
-  "/properties/[id]/page": "app/properties/[id]/page.js",
-  "/auth/page": "app/auth/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/properties/[id]/page": "app/properties/[id]/page.js"
 }
