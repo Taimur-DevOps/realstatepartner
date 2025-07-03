@@ -1,10 +1,12 @@
+// src/app/layout.js
+import "./globals.css";
 import { Inter } from "next/font/google";
-import Link from "next/link";
-import Footer from "./components/Footer";
 import Header from "./components/Header";
-import inter from "./globals.css";
+import Footer from "./components/Footer";
+import { cookies } from "next/headers"; // Use server-side check
+import { headers } from "next/headers";
 
-// const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -12,12 +14,16 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const pathname = headers().get("x-next-pathname") || "";
+
+  const isAuthRoute = pathname.startsWith("/auth");
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header />
+        {!isAuthRoute && <Header />}
         {children}
-        <Footer />
+        {!isAuthRoute && <Footer />}
       </body>
     </html>
   );

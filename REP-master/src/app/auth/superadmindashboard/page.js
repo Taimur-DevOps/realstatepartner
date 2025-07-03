@@ -4,6 +4,7 @@ import Settings from "@/app/components/Settings";
 import TableListing from "@/app/components/TableListing";
 import TeamForm from "@/app/components/TeamForm";
 import TeamList from "@/app/components/TeamList";
+import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
 const Dashboard = () => {
@@ -106,14 +107,40 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <>
+
+ <div className="flex justify-between items-center border-b p-5">
+            <h2 className="text-2xl font-semibold text-gray-800">
+              Dashboard
+            </h2>
+            <div className="flex justify-between items-center gap-2">
+            <button
+              onClick={handleRefreshStats}
+              disabled={stats.loading}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                className={`h-4 w-4 ${stats.loading ? "animate-spin" : ""}`}
+              >
+                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
+              </svg>
+              {stats.loading ? "Refreshing..." : "Refresh"}
+            </button>
+            <div
+              className="flex items-center gap-2 px-4 py-2 bg-[#fa8f8dc9] text-white rounded-lg hover:bg-lightPeach disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <Link href={`/`}>Home</Link>
+             
+            </div>
+            </div>
+          </div>
+
       {/* Sidebar */}
-      <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-screen w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-        <div className="mb-2 p-4">
-          <h5 className="block antialiased tracking-normal font-sans text-xl font-semibold leading-snug text-gray-900">
-            Admin Dashboard
-          </h5>
-        </div>
+    <div className="flex min-h-screen">
+      <div className="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
         <nav className="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
           {/* Property Main Menu with Submenu */}
           <div>
@@ -171,7 +198,7 @@ const Dashboard = () => {
                       <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
                     </svg>
                   </div>
-                  Add new properties
+                  Add new property
                 </div>
 
                 <div
@@ -314,27 +341,6 @@ const Dashboard = () => {
       <div className="w-full">
         {/* Dashboard Stats */}
         <div className="p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="text-2xl font-semibold text-gray-800">
-              Dashboard Overview
-            </h2>
-            <button
-              onClick={handleRefreshStats}
-              disabled={stats.loading}
-              className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className={`h-4 w-4 ${stats.loading ? "animate-spin" : ""}`}
-              >
-                <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" />
-              </svg>
-              {stats.loading ? "Refreshing..." : "Refresh"}
-            </button>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Total Properties Card */}
             <div className="bg-blue-500 text-white rounded-lg shadow-md p-6 relative">
@@ -546,6 +552,7 @@ const Dashboard = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

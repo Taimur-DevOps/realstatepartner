@@ -60,7 +60,12 @@ function App() {
             </span>
           </Link>
         </div>
-        <div></div>
+        <div
+              className="flex items-center gap-2 ml-5 px-4 py-2 bg-[#fa8f8dc9] text-white rounded-lg hover:bg-lightPeach disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            >
+              <Link href={`/auth/superadmindashboard`}>Login</Link>
+             
+            </div>
       </div>
     </nav>
   );
