@@ -1,4 +1,4 @@
 {
   "/page": "app/page.js",
-  "/auth/superadmindashboard/page": "app/auth/superadmindashboard/page.js"
+  "/properties/[id]/page": "app/properties/[id]/page.js"
 }
